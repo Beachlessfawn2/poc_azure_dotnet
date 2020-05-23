@@ -7,8 +7,6 @@ pool:
 variables:
   buildConfiguration: 'Release'
   runtimeIdentifier: 'win10-x64'
-  selfContained: true
-  useAppHost: true
   
 steps:
   - task: DotNetCoreCLI@2
