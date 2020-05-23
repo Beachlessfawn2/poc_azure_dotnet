@@ -6,6 +6,9 @@ pool:
   
 variables:
   buildConfiguration: 'Release'
+  runtimeIdentifier: 'win10-x64'
+  selfContained: true
+  useAppHost: true
   
 steps:
   - task: DotNetCoreCLI@2
@@ -32,7 +35,7 @@ steps:
     inputs:
       command: 'publish'
       publishWebProjects: false
-      arguments: '--configuration $(buildConfiguration) -r win10-x64 --self-contained true'
+      arguments: '--configuration $(buildConfiguration) -r $(runtimeIdentifier) --self-contained $(selfContained) --UseAppHost $(useAppHost)'
       zipAfterPublish: false
     displayName: 'DotNet Publish Build'
 
