@@ -29,9 +29,8 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
       command: 'publish'
-      publishWebProjects: false
+      publishWebProjects: true
       arguments: '--configuration $(buildConfiguration)'
-      restoreDirectory: $(System.DefaultWorkingDirectory)
 
   - task: PowerShell@2
     inputs:
