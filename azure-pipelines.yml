@@ -11,7 +11,7 @@ pool:
 
 variables:
   solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
+  buildPlatform: 'win10-x64'
   buildConfiguration: 'Release'
 
 steps:
@@ -31,3 +31,10 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- script: $(System.DefaultWorkingDirectory)/zipping.ps1
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: $(System.DefaultWorkingDirectory)/MessageUtil.zip
+    artifactName: MessageUtil
