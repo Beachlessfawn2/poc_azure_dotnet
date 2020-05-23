@@ -32,7 +32,7 @@ steps:
     inputs:
       command: 'publish'
       publishWebProjects: false
-      arguments: '--configuration $(buildConfiguration) --self-contained true'
+      arguments: '--configuration $(buildConfiguration) -r win10-x64 --self-contained true'
       zipAfterPublish: false
     displayName: 'DotNet Publish Build'
 
