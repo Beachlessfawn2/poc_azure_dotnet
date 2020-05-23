@@ -32,7 +32,7 @@ steps:
       command: 'publish'
       publishWebProjects: false
       arguments: '--configuration $(buildConfiguration)'
-      outputDir: '$(System.DefaultWorkingDirectory)\MessageUtil\bin\Release\netcoreapp3.1\publish\'
+      zipAfterPublish: false
     displayName: 'DotNet Publish Build'
 
   - task: PowerShell@2
