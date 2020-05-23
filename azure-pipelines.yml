@@ -32,9 +32,9 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- script: ./zipping.ps1
+- script: $(System.DefaultWorkingDirectory)\zipping.ps1
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: $(System.DefaultWorkingDirectory)/MessageUtil.zip
+    targetPath: $(System.DefaultWorkingDirectory)\MessageUtil.zip
     artifactName: MessageUtil
