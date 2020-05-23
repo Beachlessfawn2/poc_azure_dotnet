@@ -1,6 +1,6 @@
 $compress = @{
-    Path= "$(System.DefaultWorkingDirectory)\MessageUtil\bin\Release\netcoreapp3.1\*"
+    Path= "d:\a\1\s\MessageUtil\bin\Release\netcoreapp3.1\*"
     CompressionLevel = "Fastest"
-    DestinationPath = "$(System.DefaultWorkingDirectory)\MessageUtil.zip"
+    DestinationPath = "d:\a\1\s\MessageUtil.zip"
     }
 Compress-Archive @compress
