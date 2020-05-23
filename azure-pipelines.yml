@@ -18,19 +18,22 @@ steps:
     inputs:
       command: 'build'
       arguments: '--configuration $(buildConfiguration)'
-    displayName: 'dotnet build $(buildConfiguration)'
+    displayName: 'DotNet Build $(buildConfiguration)'
 
   - task: DotNetCoreCLI@2
     inputs:
       command: 'test'
       projects: '**/*Test/*.csproj'
       arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
+    displayName: 'DotNet Test Build'
 
   - task: DotNetCoreCLI@2
     inputs:
       command: 'publish'
-      publishWebProjects: true
+      publishWebProjects: false
       arguments: '--configuration $(buildConfiguration)'
+      outputDir: '$(System.DefaultWorkingDirectory)\MessageUtil\bin\Release\netcoreapp3.1\publish\'
+    displayName: 'DotNet Publish Build'
 
   - task: PowerShell@2
     inputs:
