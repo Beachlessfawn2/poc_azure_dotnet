@@ -42,7 +42,7 @@ steps:
     #failOnStderr: false # Optional
     #ignoreLASTEXITCODE: false # Optional
     #pwsh: false # Optional
-    workingDirectory: $(System.DefaultWorkingDirectory)\ # Optional
+    #workingDirectory: $(System.DefaultWorkingDirectory)\ # Optional
 
 - task: PublishPipelineArtifact@1
   inputs:
