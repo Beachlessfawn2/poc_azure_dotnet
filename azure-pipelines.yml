@@ -13,6 +13,7 @@ steps:
       command: 'restore'
       restoreDirectory: '$(System.DefaultWorkingDirectory)'
       #packDirectory: '$(System.DefaultWorkingDirectory)'
+    displayName: 'DotNet Restore Project'
   
   - task: DotNetCoreCLI@2
     inputs:
@@ -31,7 +32,7 @@ steps:
     inputs:
       command: 'publish'
       publishWebProjects: false
-      arguments: '--configuration $(buildConfiguration)'
+      arguments: '--configuration $(buildConfiguration) --self-contained true'
       zipAfterPublish: false
     displayName: 'DotNet Publish Build'
 
@@ -40,8 +41,10 @@ steps:
       targetType: 'filePath'
       filePath: $(System.DefaultWorkingDirectory)\ziping.ps1
       errorActionPreference: 'stop'
+    displayName: 'DotNet Zip Publish'
     
   - task: PublishPipelineArtifact@1
     inputs:
       targetPath: $(System.DefaultWorkingDirectory)\MessageUtil.zip
       artifactName: MessageUtil
+    displayName: 'Upload Zip'
