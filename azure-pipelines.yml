@@ -31,6 +31,7 @@ steps:
       command: 'publish'
       publishWebProjects: false
       arguments: '--configuration $(buildConfiguration)'
+      restoreDirectory: $(System.DefaultWorkingDirectory)
 
   - task: PowerShell@2
     inputs:
